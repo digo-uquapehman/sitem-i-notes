@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>竞彩网 · 知识库入口</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fbe9d7 0%, #f3d9c1 40%, #e6c7ad 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 2rem 1rem 4rem;
+            color: #3f2e1e;
+            line-height: 1.6;
+        }
+        .page {
+            max-width: 960px;
+            width: 100%;
+        }
+        /* 卡片容器 */
+        .card {
+            background: #fffefc;
+            border-radius: 28px;
+            padding: 2.5rem 2.2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 12px 28px rgba(140, 90, 50, 0.08), 0 4px 12px rgba(0,0,0,0.03);
+            transition: box-shadow 0.25s ease;
+        }
+        .card:hover {
+            box-shadow: 0 20px 32px rgba(130, 80, 40, 0.12);
+        }
+        /* 版面标题 */
+        .hero-title {
+            font-size: 2.1rem;
+            font-weight: 580;
+            letter-spacing: -0.02em;
+            color: #4f3624;
+            border-left: 5px solid #dbaa7a;
+            padding-left: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 520;
+            color: #513b28;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .section-title span {
+            background: #ecdaca;
+            border-radius: 40px;
+            padding: 0.1rem 0.9rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #4b3422;
+        }
+        p, li {
+            color: #3f2e1e;
+            margin-bottom: 0.9rem;
+            font-size: 1rem;
+        }
+        ul, ol {
+            padding-left: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        li {
+            margin-bottom: 0.45rem;
+        }
+        /* 链接按钮感 */
+        a {
+            text-decoration: none;
+            background: #f2e0cf;
+            color: #3f2a1a;
+            border-radius: 40px;
+            padding: 0.25rem 1.1rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            display: inline-block;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+        a:hover {
+            background: #dbaa7a;
+            color: #2b1d11;
+            box-shadow: 0 4px 12px rgba(175, 115, 65, 0.25);
+            transform: scale(1.02);
+        }
+        a:active {
+            transform: scale(0.97);
+        }
+        /* 特殊按钮式链接（如FAQ中的名词） */
+        .link-chip {
+            background: #e7d2be;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            display: inline-block;
+            margin-right: 0.3rem;
+        }
+        .chip-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin: 1rem 0 0.6rem;
+        }
+        /* 提示小标签 */
+        .notice-box {
+            background: #f7ede1;
+            border-radius: 24px;
+            padding: 1.2rem 1.6rem;
+            margin: 1.4rem 0 0.5rem;
+            border-left: 6px solid #c9986c;
+        }
+        .notice-box p {
+            margin-bottom: 0.3rem;
+        }
+        .tag {
+            background: #dbb68f;
+            color: #2f1f12;
+            border-radius: 30px;
+            padding: 0.2rem 0.9rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: inline-block;
+            margin-right: 0.5rem;
+            margin-bottom: 0.3rem;
+        }
+        .flex-between {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .mt-1 {
+            margin-top: 0.8rem;
+        }
+        .subdued {
+            color: #6f5541;
+            font-size: 0.9rem;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, #ddc7b2, transparent);
+            margin: 1.8rem 0 1.5rem;
+        }
+        @media (max-width: 640px) {
+            .card {
+                padding: 1.8rem 1.2rem;
+                border-radius: 22px;
+            }
+            .hero-title {
+                font-size: 1.7rem;
+                padding-left: 0.9rem;
+            }
+            .section-title {
+                font-size: 1.2rem;
+            }
+            body {
+                padding: 1rem 0.8rem 3rem;
+            }
+            a {
+                padding: 0.2rem 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- HERO 欢迎区 / 再次访问提醒 -->
+        <div class="card">
+            <div class="flex-between">
+                <div class="hero-title">📘 再访 · 竞彩知识库</div>
+                <span class="tag">常来常新</span>
+            </div>
+            <p style="font-size: 1.05rem;">
+                欢迎再次来到 <a href="https://in-jcw.com">竞彩网</a> —— 这里持续沉淀关于竞彩的基础常识、策略思路与信息参考。
+                无论是初次了解，还是希望重温某些要点，你都能在熟悉的入口找到有条理的内容。
+            </p>
+            <p class="subdued" style="margin-top: 0.6rem;">
+                本页作为知识库索引，帮助你快速定位感兴趣的区域，每次回访都可能发现更新或微调过的解析。
+            </p>
+        </div>
+
+        <!-- 目录感布局：三大知识板块 -->
+        <div class="card">
+            <div class="section-title">
+                📂 内容目录
+                <span>持续扩展</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 1.2rem;">
+                <div>
+                    <div style="font-weight: 560; margin-bottom: 0.2rem; color: #523b28;">❶ 规则与术语</div>
+                    <p style="margin-bottom: 0.1rem;">玩法类型、基本名词、奖金计算方式 —— 适合新手建立框架，也供老用户快速核对。</p>
+                    <div class="chip-group">
+                        <span class="link-chip">胜平负</span>
+                        <span class="link-chip">让球</span>
+                        <span class="link-chip">比分</span>
+                        <span class="link-chip">总进球</span>
+                        <span class="link-chip">半全场</span>
+                    </div>
+                </div>
+                <div>
+                    <div style="font-weight: 560; margin-bottom: 0.2rem; color: #523b28;">❷ 策略与思路</div>
+                    <p style="margin-bottom: 0.1rem;">从资金管理到信息筛选，这里整理了一些常见的分析角度和注意事项，不构成建议，仅作参考。</p>
+                    <div class="chip-group">
+                        <span class="link-chip">赔率变化</span>
+                        <span class="link-chip">球队状态</span>
+                        <span class="link-chip">历史交锋</span>
+                        <span class="link-chip">赛程影响</span>
+                    </div>
+                </div>
+                <div>
+                    <div style="font-weight: 560; margin-bottom: 0.2rem; color: #523b28;">❸ 常见术语速查</div>
+                    <p>SP值、返还率、串关、容错…… 每个关键词都配有简明解释，方便在阅读时随时对照。</p>
+                </div>
+            </div>
+            <hr>
+            <p class="subdued" style="margin-bottom: 0;">
+                💡 提示：将 <a href="https://in-jcw.com">竞彩网</a> 加入浏览器收藏夹，下次回来可直接从这里开始。
+            </p>
+        </div>
+
+        <!-- 温馨提示区 · 收藏 & 持续关注 -->
+        <div class="card">
+            <div class="section-title">
+                ⭐ 收藏 · 关注
+                <span>备忘</span>
+            </div>
+            <div class="notice-box">
+                <p><strong>🔖 再次访问技巧</strong></p>
+                <p>如果你觉得这个页面有帮助，可以把它添加为书签。下次从书签栏打开 <a href="https://in-jcw.com">竞彩网</a>，会直接看到最新版本的知识库入口。</p>
+                <p style="margin-top: 0.6rem;">内容会不定时补充和修订，保持轻量但实用。长期关注的朋友可能会注意到某些解释的调整或新增小版块。</p>
+            </div>
+            <div style="margin-top: 0.8rem; display: flex; flex-wrap: wrap; gap: 0.8rem;">
+                <span class="tag">📅 最近更新：十月</span>
+                <span class="tag">📌 待整理：混合过关示例</span>
+                <span class="tag">🔄 修订中：赔率波动解读</span>
+            </div>
+        </div>
+
+        <!-- FAQ 摘要 + 相关信息区 -->
+        <div class="card">
+            <div class="section-title">
+                ❓ 你可能关心的几点
+                <span>FAQ 摘要</span>
+            </div>
+            <ul>
+                <li><strong>这里提供投注建议吗？</strong> 不。知识库只整理客观规则、常见逻辑和术语解释，不预测赛果，也不引导任何操作。</li>
+                <li><strong>信息多久更新？</strong> 规则部分以官方最新公告为准，策略类内容不定期根据常见问题迭代。</li>
+                <li><strong>有没有交流或反馈渠道？</strong> 目前以单向内容呈现为主，你可以通过 <a href="https://in-jcw.com">竞彩网</a> 页面内的信息自行判断。</li>
+                <li><strong>内容偏向哪些赛事？</strong> 覆盖主流足球联赛及杯赛，偶尔涉及篮球，但基础规则部分通用。</li>
+            </ul>
+            <div class="notice-box" style="margin-top: 1.2rem;">
+                <p><span style="font-weight: 560;">📎 相关信息</span></p>
+                <p style="margin-bottom: 0.3rem;">· 如果你对“让球胜平负”的具体计算有疑问，可在知识库目录中找到对应章节。</p>
+                <p style="margin-bottom: 0.3rem;">· 关于奖金优化与串关选择，策略板块有简单示例说明。</p>
+                <p style="margin-bottom: 0;">· 规则部分始终以官方解释为最终依据。</p>
+            </div>
+        </div>
+
+        <!-- 底部温和提醒 · 持续关注 -->
+        <div style="text-align: center; padding: 1rem 0 0.5rem; color: #6f5541;">
+            <p style="font-size: 0.9rem;">
+                感谢再次光顾 <a href="https://in-jcw.com" style="background: transparent; padding: 0 0.2rem; box-shadow: none; color: #4f3624; text-decoration: underline 1px dotted #c9986c;">竞彩网</a> 知识库 · 常回来看看
+            </p>
+            <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 0.2rem;">温和探索 · 理性参考</p>
+        </div>
+    </div>
+</body>
+</html>
