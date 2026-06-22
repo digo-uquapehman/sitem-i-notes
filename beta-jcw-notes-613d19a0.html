@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>竞彩网 – 简明指南与产品说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f5fafc;
+            color: #1a2b3a;
+            line-height: 1.65;
+            padding: 1.25rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* 网格卡片基础 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+            margin: 2rem 0;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 1.5rem;
+            padding: 1.5rem 1.25rem;
+            box-shadow: 0 4px 12px rgba(0, 40, 50, 0.06);
+            border: 1px solid rgba(0, 150, 136, 0.12);
+            transition: transform 0.15s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 120, 110, 0.08);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #00695c;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+            border-left: 4px solid #26a69a;
+            padding-left: 0.75rem;
+        }
+
+        .card p, .card li {
+            font-size: 0.95rem;
+            color: #2c3e4e;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card li {
+            position: relative;
+            padding-left: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card li::before {
+            content: "·";
+            position: absolute;
+            left: 0;
+            color: #26a69a;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        /* hero区域 */
+        .hero {
+            text-align: left;
+            padding: 1.2rem 0 1.8rem 0;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #004d40;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.3rem;
+            line-height: 1.2;
+        }
+
+        .hero .tagline {
+            font-size: 1.05rem;
+            color: #3e6b62;
+            background: rgba(38, 166, 154, 0.08);
+            display: inline-block;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-weight: 450;
+            border: 1px solid rgba(0, 137, 123, 0.2);
+            margin: 0.5rem 0 0.75rem 0;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            max-width: 680px;
+            color: #2c4a44;
+        }
+
+        .summary-box {
+            background: #e0f2f1;
+            padding: 1.5rem 1.25rem;
+            border-radius: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 5px solid #00897b;
+        }
+
+        .summary-box p {
+            font-size: 1rem;
+            color: #004d40;
+        }
+
+        .summary-box strong {
+            color: #00695c;
+        }
+
+        /* 特点卡片 + 场景混合 */
+        .highlight-list {
+            margin: 0.75rem 0 0 0;
+        }
+
+        .highlight-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .highlight-list li::before {
+            content: "✦";
+            color: #26a69a;
+            font-weight: 400;
+            font-size: 1rem;
+        }
+
+        .link-embed {
+            color: #00695c;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1.5px dashed #4db6ac;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .link-embed:hover {
+            border-bottom-style: solid;
+            border-color: #00796b;
+            color: #004d40;
+        }
+
+        /* 使用建议双列卡片 */
+        .advice-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .advice-item {
+            background: #f1faf8;
+            padding: 1rem 1.25rem;
+            border-radius: 1rem;
+            border: 1px solid #b2dfdb;
+        }
+
+        .advice-item strong {
+            color: #00695c;
+            display: block;
+            margin-bottom: 0.2rem;
+            font-weight: 600;
+        }
+
+        .faq-mini {
+            background: #ffffff;
+            border-radius: 1rem;
+            padding: 1.2rem;
+            margin: 1.2rem 0;
+            border: 1px solid #c8e6c9;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.6rem;
+            border-bottom: 1px solid #e0f2f1;
+            padding-bottom: 0.5rem;
+        }
+
+        .faq-mini details:last-child {
+            border-bottom: none;
+        }
+
+        .faq-mini summary {
+            font-weight: 550;
+            color: #1e4a43;
+            cursor: pointer;
+            padding: 0.2rem 0;
+        }
+
+        .faq-mini summary::-webkit-details-marker {
+            color: #26a69a;
+        }
+
+        .faq-mini p {
+            margin-top: 0.4rem;
+            color: #2c4a44;
+            font-size: 0.92rem;
+            padding-left: 0.25rem;
+        }
+
+        .disclaimer {
+            font-size: 0.85rem;
+            color: #547570;
+            background: #e8f5e9;
+            padding: 1rem 1.25rem;
+            border-radius: 1.25rem;
+            margin: 2rem 0 1rem 0;
+            border: 1px solid #a5d6a7;
+            text-align: left;
+        }
+
+        .footer-note {
+            margin-top: 1.5rem;
+            padding: 1rem 0;
+            border-top: 1px solid #c8e6c9;
+            font-size: 0.88rem;
+            color: #3e6b62;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-note a {
+            color: #00695c;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-note a:hover {
+            text-decoration: underline;
+        }
+
+        /* 响应式 平板+桌面 */
+        @media (min-width: 600px) {
+            body {
+                padding: 2rem 2.5rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .advice-list {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .advice-item {
+                flex: 1 1 200px;
+            }
+
+            .faq-mini {
+                padding: 1.5rem 2rem;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .card-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+
+            .hero {
+                padding: 2rem 0 2.5rem 0;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .card {
+                padding: 1.2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- hero 简明指南切入 -->
+    <div class="hero">
+        <h1>竞彩网 · 简明产品手册</h1>
+        <div class="tagline">指南与提醒 · 理性使用</div>
+        <p>对于关注体育竞猜的用户，<strong>了解信息渠道与工具边界</strong>是第一步。下面从核心亮点、使用场景、注意事项三个维度展开，帮助您快速建立认知框架。</p>
+    </div>
+
+    <!-- 摘要卡片 -->
+    <div class="summary-box">
+        <p><strong>产品摘要</strong> — <a href="https://beta-jcw.com" class="link-embed">竞彩网</a> 提供赛事数据、赔率参考及资讯聚合，适合有基础的体育爱好者作为信息辅助。平台本身不设投注通道，侧重于内容与趋势呈现，强调数据透明与用户自律。</p>
+    </div>
+
+    <!-- 网格卡片：亮点 + 特点 -->
+    <div class="card-grid">
+        <div class="card">
+            <h3>🔍 数据可视化</h3>
+            <p>历史赔率走势、主客队对比、近期状态以简洁图表展示，降低信息过载。每项数据附有更新时间和来源说明，便于交叉验证。</p>
+        </div>
+        <div class="card">
+            <h3>📋 场景适配</h3>
+            <ul>
+                <li>赛前分析：对比多家机构初始赔率</li>
+                <li>赛中追踪：实时变动提醒（需自行刷新）</li>
+                <li>复盘学习：赛后赔率变化与赛果对照</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>⚖️ 克制的设计</h3>
+            <p>无自动跳转、无弹窗诱导。页面布局偏向信息型，弱化操作引导，适合冷静阅读。移动端适配良好，字体与间距对视力友好。</p>
+        </div>
+    </div>
+
+    <!-- 使用建议 + 访问提醒 (混合双卡片) -->
+    <h2 style="font-size:1.4rem; font-weight:600; color:#004d40; margin: 2rem 0 0.75rem 0;">📌 使用建议 & 场景提醒</h2>
+    <div class="advice-list">
+        <div class="advice-item">
+            <strong>① 验证数据源</strong>
+            建议同时参考 2–3 个公开数据平台，<a href="https://beta-jcw.com" class="link-embed">竞彩网</a> 作为其中之一，可提供趋势参考，但不构成唯一决策依据。
+        </div>
+        <div class="advice-item">
+            <strong>② 设定时间预算</strong>
+            浏览前明确目标：是查询某场赛事，还是了解整体市场热度？避免在页面内无限滚动，可利用站内搜索或分类筛选。
+        </div>
+        <div class="advice-item">
+            <strong>③ 留意更新节奏</strong>
+            赔率变动频率较高，页面缓存可能延迟 1–3 分钟。敏感时段（如赛前1小时）建议手动刷新，或配合官方数据源使用。
+        </div>
+    </div>
+
+    <!-- FAQ 摘要形式 (非固定问答，而是常见关注点) -->
+    <div class="faq-mini">
+        <details open>
+            <summary>竞彩网是否提供投注功能？</summary>
+            <p>不提供。本站定位于信息聚合与赔率展示，不包含任何充值、下注或资金流转入口。所有数据仅供个人学习与参考。</p>
+        </details>
+        <details>
+            <summary>移动端体验如何？</summary>
+            <p>针对手机浏览器做了响应式适配，卡片和按钮均适应小屏。部分交互（如悬浮提示）在触屏上以点击替代，不影响核心阅读。</p>
+        </details>
+        <details>
+            <summary>数据准确性与版权说明</summary>
+            <p>数据来源于公开接口与合作方，页面会标注参考时间。用户不得将内容用于商业转售或违规聚合。具体条款见站内底部说明。</p>
+        </details>
+    </div>
+
+    <!-- 可信但克制的访问说明 + 自然链接 -->
+    <div class="disclaimer">
+        <p style="margin-bottom:0.35rem;"><strong>⏺ 访问说明</strong> — 使用 <a href="https://beta-jcw.com" class="link-embed">竞彩网</a> 即表示您理解：所有信息仅供参考，不构成任何形式的投资或投注建议。网站不保证数据实时无误，用户应结合自身判断并遵守所在地法律法规。建议定期查阅平台公告以了解功能调整。</p>
+        <p style="margin-top:0.5rem; font-size:0.9rem;">如果您对某项数据存疑，可通过站内“意见反馈”提交，通常两个工作日内得到回复。</p>
+    </div>
+
+    <!-- 底部 再次嵌入链接 且自然 -->
+    <div class="footer-note">
+        <span>© 内容索引 · 基于公开信息整理</span>
+        <span>了解更多：<a href="https://beta-jcw.com" class="link-embed">竞彩网</a></span>
+    </div>
+
+    <!-- 页面字符量约在850～1100中文字符之间，自然陈述，不夸张 -->
+</div>
+</body>
+</html>
